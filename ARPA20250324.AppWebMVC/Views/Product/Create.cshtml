@@ -4,57 +4,59 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1 class="display-4 text-center" style="font-family:'Cambria Math'">Editar Usuario</h1>
 
-<h4>Product</h4>
+<h4 style="font-family:'Cambria Math'" class="text-secondary text-center">Usuarios</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+<div class=" justify-content-center align-items-center vh-100">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-4 shadow-lg rounded-3 p-4 bg-light justify-content-center align-items-center">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="ProductName" class="control-label"></label>
-                <input asp-for="ProductName" class="form-control" />
+                    <label asp-for="ProductName" class="form-label fw-bold shadow-sm"></label>
+                    <input asp-for="ProductName" class="form-control shadow-sm" placeholder="Ingrese el nombre del producto" />
                 <span asp-validation-for="ProductName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
+                    <label asp-for="Description" class="form-label fw-bold shadow-sm"></label>
+                    <input asp-for="Description" class="form-control shadow-sm" placeholder="Ingrese la descripcion" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
+                    <label asp-for="Price" class="form-label fw-bold shadow-sm"></label>
+                    <input asp-for="Price" class="form-control shadow-sm" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PurchasePrice" class="control-label"></label>
-                <input asp-for="PurchasePrice" class="form-control" />
+                    <label asp-for="PurchasePrice" class="form-label fw-bold shadow-sm"></label>
+                    <input asp-for="PurchasePrice" class="form-control shadow-sm" />
                 <span asp-validation-for="PurchasePrice" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="WarehouseId" class="control-label"></label>
-                <select asp-for="WarehouseId" class ="form-control" asp-items="ViewBag.WarehouseId"></select>
+                    <label asp-for="Id" class="form-label fw-bold shadow-sm"></label>
+                    <select asp-for="Id" class="form-control shadow-sm" asp-items="ViewBag.Id"></select>
             </div>
             <div class="form-group">
-                <label asp-for="BrandId" class="control-label"></label>
-                <select asp-for="BrandId" class ="form-control" asp-items="ViewBag.BrandId"></select>
+                    <label asp-for="Id" class="form-label fw-bold shadow-sm"></label>
+                    <select asp-for="Id" class="form-control shadow-sm" asp-items="ViewBag.Id"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Notes" class="control-label"></label>
-                <input asp-for="Notes" class="form-control" />
+                    <label asp-for="Notes" class="form-label fw-bold shadow-sm"></label>
+                    <input asp-for="Notes" class="form-control shadow-sm" placeholder="Agregue una nota" />
                 <span asp-validation-for="Notes" class="text-danger"></span>
             </div>
+            <hr />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Crear" class="btn btn-secondary" />
+                    <a asp-action="Index" class="btn btn-dark">Volver</a>
+
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
