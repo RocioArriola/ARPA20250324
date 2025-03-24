@@ -4,34 +4,33 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1 class="display-4 text-center" style="font-family:'Cambria Math'">Crear Marcas</h1>
 
-<h4>Brand</h4>
+<h4 style="font-family:'Cambria Math'" class="text-secondary text-center">Marcas</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="BrandName" class="control-label"></label>
-                <input asp-for="BrandName" class="form-control" />
+                <label asp-for="BrandName" class="form-label fw-bold shadow-sm"></label>
+                <input asp-for="BrandName" class="form-control shadow-sm" placeholder="Ingrese el nombre de la marca" />
                 <span asp-validation-for="BrandName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Country" class="control-label"></label>
-                <input asp-for="Country" class="form-control" />
+                <label asp-for="Country" class="form-label fw-bold shadow-sm"></label>
+                <input asp-for="Country" class="form-control shadow-sm" placeholder="Ingrese el nombre del pais" />
                 <span asp-validation-for="Country" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="crear" class="btn btn-info btn-sm" />
+                <a asp-action="Index" class="btn btn-dark">Volver</a>
+
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
