@@ -26,9 +26,18 @@ namespace ARPA20250324.AppWebMVC.Controllers
         }
 
         // GET: User
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(User usuario, int topRegistro = 10)
         {
-            return View(await _context.Users.ToListAsync());
+            var query = _context.Users.AsQueryable();
+            if (!string.IsNullOrWhiteSpace(usuario.Username))
+                query = query.Where(s => s.Username.Contains(usuario.Username));
+            if (!string.IsNullOrWhiteSpace(usuario.Role))
+                query = query.Where(s => s.Role.Contains(usuario.Role));
+            if (topRegistro > 0)
+                query = query.Take(topRegistro);
+
+
+            return View(await query.ToListAsync());
         }
 
         // GET: User/Details/5
