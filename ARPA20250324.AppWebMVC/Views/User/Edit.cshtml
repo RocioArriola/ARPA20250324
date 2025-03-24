@@ -4,50 +4,54 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1 class="display-4 text-center" style="font-family:'Cambria Math'">Editar Usuario</h1>
 
-<h4>User</h4>
+<h4 style="font-family:'Cambria Math'" class="text-secondary text-center">Usuarios</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+
+<div class=" justify-content-center align-items-center vh-100">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-4 shadow-lg rounded-3 p-4 bg-light justify-content-center align-items-center">
+       
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Username" class="control-label"></label>
-                <input asp-for="Username" class="form-control" />
+            <div class="form-group mb-3">
+                <label asp-for="Username" class="form-label fw-bold shadow-sm"></label>
+                <input asp-for="Username" class="form-control shadow-sm" placeholder="Ingrese su nombre"/>
                 <span asp-validation-for="Username" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+            <div class="form-group mb-3">
+                <label asp-for="Email" class="form-label fw-bold shadow-sm"></label>
+                <input asp-for="Email" class="form-control" placeholder="Ingrese su Email"/>
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
-            <div class="form-group">
+           @*  <div class="form-group">
                 <label asp-for="Password" class="control-label"></label>
                 <input asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Role" class="control-label"></label>
-                <input asp-for="Role" class="form-control" />
+            </div> *@
+
+            <div class="form-group mb-3">
+                <label asp-for="Role" class="form-label fw-bold shadow-sm">Rol</label>
+                @Html.DropDownListFor(model => model.Role, ViewData["Roles"] as SelectList, "Seleccione un Rol", new { @class = "form-control shadow-sm" })
                 <span asp-validation-for="Role" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Notes" class="control-label"></label>
-                <input asp-for="Notes" class="form-control" />
+
+            <div class="form-group mb-3">
+                <label asp-for="Notes" class="form-label fw-bold shadow-sm"></label>
+                <input asp-for="Notes" class="form-control shadow-sm" placeholder="Agregue una nota"/>
                 <span asp-validation-for="Notes" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Guardar" class="btn btn-warning btn-sm" />
+                <a asp-action="Index" class="btn btn-dark btn-sm">Volver</a>
+
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

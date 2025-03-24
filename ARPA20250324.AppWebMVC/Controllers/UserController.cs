@@ -61,6 +61,9 @@ namespace ARPA20250324.AppWebMVC.Controllers
         // GET: User/Create
         public IActionResult Create()
         {
+            // Lista de roles disponibles
+            ViewData["Roles"] = new SelectList(new List<string> { "ADMINISTRADOR", "GERENTE" });
+
             return View();
         }
 
@@ -146,6 +149,10 @@ namespace ARPA20250324.AppWebMVC.Controllers
             {
                 return NotFound();
             }
+
+            // Lista de roles disponibles
+            ViewData["Roles"] = new SelectList(new List<string> { "ADMINISTRADOR", "GERENTE" });
+
 
             var user = await _context.Users.FindAsync(id);
             if (user == null)
