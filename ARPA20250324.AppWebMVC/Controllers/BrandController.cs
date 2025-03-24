@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ARPA20250324.AppWebMVC.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ARPA20250324.AppWebMVC.Controllers
 {
+    [Authorize(Roles = "GERENTE")]
     public class BrandController : Controller
     {
         private readonly Test20250324DbContext _context;

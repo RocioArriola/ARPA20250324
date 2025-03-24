@@ -1,1 +1,37 @@
-﻿
+﻿@model ARPA20250324.AppWebMVC.Models.User
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1 class="text-center" style="font-family:'Cambria Math'">BIENVENIDO</h1>
+
+<h4 class="text-center small" style="font-family:'Cambria Math'">Registrate!!</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email" class="form-label fw-bold"></label>
+                <input asp-for="Email" class="form-control shadow-sm" placeholder="Ingrese su Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="form-label fw-bold"></label>
+                <input asp-for="Password" class="form-control shadow-sm" placeholder="Ingrese su contraseña" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group mt-2">
+                <input type="submit" value="Login" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
